@@ -4,10 +4,10 @@
 <p>File system has been represented by a tree and this tree has been implemented lists in Python. <strong>check_commands</strong> function acts as the main function in C and takes two parameters: FS and C.</p>
 
 <ul>
-  <li><p><strong>FS:</strong> The existing directory tree in the system. For example,<br> ["/"] represents a fully empty system which           contains only the root("/") or
-    <br> ["/", ["home", "D"]] represents a file system which contains a folder("D" or "d" for folder) named "home" under the root. 
-    <br><em><h6>From now on, the following directory system is going to be used to explain other functions:<br>
-    ["/", "d", ["home", "D", ["the4", "D", ["the4", "D"], ["the.py", "F"]]], ["etc", "d"], ["tmp", "D", ["tmp.sh", "F"], ["del.txt", "F"]]]     </h6></em></p></li>
+  <li>
+    <p><strong>FS:</strong> The existing directory tree in the system. For example,<br> ["/"] represents a fully empty system which           contains only the root("/") or<br>
+      ["/", ["home", "D"]] represents a file system which contains a folder("D" or "d" for folder) named "home" under the root.<br>
+      <em></em></p></li>
 
   <li>
     <strong>C:</strong> Commands that want to be executed. C is a list so commands should be given in a Python type list where each element is a string. For example, 
@@ -19,6 +19,7 @@
 
 Here is the functions for commands in Linux and their explanations:<br>
 <ul>
+  
 <li><strong>cd: </strong>Takes two parameters, FS and CD. FS is the file system provided to the function <strong>check_commands </strong>and CD is the path given to the command. Does the same operation as the "cd" command in Linux. Returns <strong>True</strong>  if the operation has been succesfull. Returns <strong>False</strong> otherwise.</li>
   <li>
     <p>
@@ -43,6 +44,20 @@ Here is the functions for commands in Linux and their explanations:<br>
   <li>
     <p>
       <strong>copy: </strong>Takes two parameters: FS and MD. FS is the file system provided to the function <strong>check_commands </strong>and CP is the path given to the command. Copies the file of the given path to required position. Returns <strong>True</strong> if the paths are valid and the file has been copeid succesfully. Returns <strong>False</strong> otherwise.
+    </p>
+  </li>
+</ul>
+
+<h3>Path Types</h1>
+<ul>
+  <li>
+    <p>
+      <strong>Absolute Path: </strong>Paths that are starting from the root. In this system, they are differentiated by a preceding slash "/". For example, "/home/etc" is an absolute path while "home/the4" is a relative path.
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Relative Path: </strong>Paths that are starting from the working directory. In this system, if a path is <strong>NOT</strong> preceded by a slash "/", that path is relative. For example, "/home/etc" is an absolute path while "home/the4" is a relative path.
     </p>
   </li>
 </ul>
