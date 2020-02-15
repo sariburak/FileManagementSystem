@@ -61,3 +61,40 @@ Here is the functions for commands in Linux and their explanations:<br>
     </p>
   </li>
 </ul>
+
+<h3>Example Function Calls</h3>
+<p>
+  For readibility, let's assume <br>
+  <em>FS = ["/", "d", ["home", "D", ["user", "D", ["user", "D"], ["admin.txt", "F"]]], ["etc", "d"], ["tmp", "D", ["tmp.sh", "F"], ["del.txt", "F"]]]</em>
+</p>
+<p>
+  <strong>check_commands(FS, ["cd home"]): </strong>This call will update the working directorty to "/home" and keep FS as it is. Here is the output: <br>
+  </p>
+  <p>
+  <code>
+    ('SUCCESS', ['/', 'd', ['home', 'D', ['user', 'D', ['user', 'D'], ['admin.txt', 'F']]], ['etc', 'd'], ['tmp', 'D', ['tmp.sh', 'F'], ['del.txt', 'F']]], '/home')
+  </code>
+ </p>
+ <p>
+  <strong>check_commands(FS, ["cd home", "rmdir user/user", "mkdir /etc/test2"]): </strong> This call will update to workind directory to "/home" and update the FS based on the given commands. Note that "user/user" is a relative path while "/etc/test2" is an absolute       path. (Also note that "rmdir user" would yield an error since non-empty folders can not be deleted.) Output:</p><br>
+ <p>
+ <code>
+    ('SUCCESS', ['/', 'd', ['home', 'D', ['user', 'D', ['admin.txt', 'F']]], ['etc', 'd', ['test2', 'D']], ['tmp', 'D', ['tmp.sh', 'F'], ['del.txt', 'F']]], '/home')
+  </code>
+  </p>
+  <p>
+  <strong>check_commands(FS, ["cd home", "rm user/admin.txt"]): </strong> This call will update to workind directory to "/home" and update the FS based on the given commands. (admin.txt will be deleted.)
+  </p>
+  <p>
+ <code>
+    ('SUCCESS', ['/', 'd', ['home', 'D', ['user', 'D', ['user', 'D']]], ['etc', 'd'], ['tmp', 'D', ['tmp.sh', 'F'], ['del.txt', 'F']]], '/home')
+  </code>
+  </p>
+  <p>
+  <strong>check_commands(FS, ["cd tmp", "mkdir /home/user/user"]): </strong> This call will update the working directory to "tmp" and try to create a new folder named "user" under the path "/home/user". Since there is alreay such a folder, funcstion call will fail.
+  </p>
+  <p>
+ <code>
+    ('ERROR', 'mkdir /home/user/user', '/tmp')
+  </code>
+  </p>
