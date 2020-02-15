@@ -6,8 +6,10 @@
 <ul>
   <li>
     <p><strong>FS:</strong> The existing directory tree in the system. For example,<br> ["/"] represents a fully empty system which           contains only the root("/") or<br>
-      ["/", ["home", "D"]] represents a file system which contains a folder("D" or "d" for folder) named "home" under the root.<br>
-      <em></em></p></li>
+      ["/", ["home", "D",]] represents a file system which contains a folder("D" or "d" for folder) named "home" under the root or<br>
+      ["/", ["home", "D", ["work.txt", "F"]]] represents a file system which contains a folder named "home" and under that folder, there is a file("F" or "f" for file) named "work.txt".
+    </p>
+  </li>
 
   <li>
     <strong>C:</strong> Commands that want to be executed. C is a list so commands should be given in a Python type list where each element is a string. For example, 
