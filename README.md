@@ -66,8 +66,8 @@ Here is the functions for commands in Linux and their explanations:<br>
 
 <h3>Example Function Calls</h3>
 <p>
-  For readibility, let's assume <br>
-  <em>FS = ["/", "d", ["home", "D", ["user", "D", ["user", "D"], ["admin.txt", "F"]]], ["etc", "d"], ["tmp", "D", ["tmp.sh", "F"], ["del.txt", "F"]]]</em>
+  For readibility, let's assume: <br>
+  <p><code>FS = ["/", "d", ["home", "D", ["user", "D", ["user", "D"], ["admin.txt", "F"]]], ["etc", "d"], ["tmp", "D", ["tmp.sh", "F"], ["del.txt", "F"]]]</p></code>
 </p>
 <p>
   <strong>check_commands(FS, ["cd home"]): </strong>This call will update the working directorty to "/home" and keep FS as it is. Here is the output: <br>
